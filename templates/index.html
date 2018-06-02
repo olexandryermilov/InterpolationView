@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename='js/math.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename='js/Chart.min.js')}}"></script>
+    <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="column-left">
+    <canvas id="main-canvas"></canvas>
+    <div id="log">
+    </div>
+</div>
+<div class="column-right">
+    <div class="row header">Controls</div>
+    <div class="row">
+        <table>
+            <tr>
+                <td>x left bound</td>
+                <td>x right bound</td>
+            </tr>
+            <tr>
+                <td><input type="number" id="left_bound" value="-6"/></td>
+                <td><input type="number" id="right_bound" value="6"/></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>Formula</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="formula" value="x^2 + sin(7*x) + 16*exp(-x^2)"/></td>
+            </tr>
+        </table>
+
+        <div class="header">Lagrange interpolation <br><a class="info">(any points)</a></div>
+        <table>
+            <tr>
+                <td>x values</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="x" value="-4,-3,-2,1,4"/></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="btn" onclick="lagrange_interpolation_any()">Build</div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="header">Lagrange interpolation <br><a class="info">(same intervals)</a></div>
+        <table>
+            <tr>
+                <td>x left</td>
+                <td>x right</td>
+                <td>Intervals</td>
+            </tr>
+            <tr>
+                <td><input type="number" id="left" value="-5"/></td>
+                <td><input type="number" id="right" value="5"/></td>
+                <td><input type="number" id="intervals" value="10"/></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div class="btn" onclick="lagrange_interpolation_same()">Build</div>
+                </td>
+            </tr>
+        </table>
+		
+		<div class="header">Lagrange interpolation <br><a class="info">(Chebyshev polynomials zeros)</a></div>
+        <table>
+            <tr>
+                <td>x left</td>
+                <td>x right</td>
+                <td>Intervals</td>
+            </tr>
+            <tr>
+                <td><input type="number" id="left_c" value="-5"/></td>
+                <td><input type="number" id="right_c" value="5"/></td>
+                <td><input type="number" id="intervals_c" value="10"/></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div class="btn" onclick="lagrange_interpolation_chebyshev()">Build</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="{{url_for('static',filename='js/main.js')}}"></script>
+</body>
+</html>
