@@ -59,7 +59,7 @@ class Polynomial:
                      '-x^{}'.format(i)
                  )
              ) if i > 0 else str(round(float(a), 5))
-             for i, a in enumerate(self.coefficients) if a != 0 or self.degree == 0]
+             for i, a in enumerate(self.coefficients) if abs(a) > 0.00001 or self.degree == 0]
         return 'P[n={}, {}]'.format(self.degree, '+'.join(p[::-1]).replace('+-', '-').replace('^1', ''))
 
 
